@@ -1,0 +1,41 @@
+2024-05-31 12:59:16,591: asyncio: INFO: [EnhancedMLTrader] Executing the initialize lifecycle method
+2024-05-31 12:59:20,195: root: INFO: Current backtesting datetime 2022-01-03 08:30:00-05:00
+2024-05-31 12:59:20,198: asyncio: INFO: [EnhancedMLTrader] Executing the before_market_opens lifecycle method
+2024-05-31 12:59:20,200: root: INFO: Current backtesting datetime 2022-01-03 09:30:00-05:00
+2024-05-31 12:59:20,201: asyncio: INFO: [EnhancedMLTrader] Executing the before_starting_trading lifecycle method
+2024-05-31 12:59:20,203: asyncio: INFO: [EnhancedMLTrader] [34mExecuting the on_trading_iteration lifecycle method at 2024-05-31 12:59:20[0m
+2024-05-31 12:59:21,482: asyncio: ERROR: [EnhancedMLTrader] module 'finta' has no attribute 'momentum'
+2024-05-31 12:59:21,491: asyncio: ERROR: [EnhancedMLTrader] Traceback (most recent call last):
+  File "C:\Users\amerb\anaconda3\envs\custom\Lib\site-packages\lumibot\strategies\strategy_executor.py", line 919, in run
+    self._run_trading_session()
+  File "C:\Users\amerb\anaconda3\envs\custom\Lib\site-packages\lumibot\strategies\strategy_executor.py", line 867, in _run_trading_session
+    self._on_trading_iteration()
+  File "C:\Users\amerb\anaconda3\envs\custom\Lib\site-packages\lumibot\strategies\strategy_executor.py", line 262, in func_output
+    result = func_input(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amerb\anaconda3\envs\custom\Lib\site-packages\lumibot\strategies\strategy_executor.py", line 286, in func_output
+    result = func_input(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amerb\anaconda3\envs\custom\Lib\site-packages\lumibot\strategies\strategy_executor.py", line 397, in _on_trading_iteration
+    raise e
+  File "C:\Users\amerb\anaconda3\envs\custom\Lib\site-packages\lumibot\strategies\strategy_executor.py", line 369, in _on_trading_iteration
+    on_trading_iteration()
+  File "C:\Users\amerb\anaconda3\envs\custom\Lib\site-packages\lumibot\tools\decorators.py", line 62, in func_output
+    frame, result = call_function_get_frame(func_input, *args, **kwargs)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amerb\anaconda3\envs\custom\Lib\site-packages\lumibot\tools\decorators.py", line 30, in call_function_get_frame
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\amerb\OneDrive\Bureau\vs_python\bot\lumi_bot_1\risk_management.py", line 69, in on_trading_iteration
+    bars = self.calculate_indicators(self.symbol)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\amerb\OneDrive\Bureau\vs_python\bot\lumi_bot_1\risk_management.py", line 36, in calculate_indicators
+    bars['rsi'] = ta.momentum.RSIIndicator(bars['close']).rsi()
+                  ^^^^^^^^^^^
+AttributeError: module 'finta' has no attribute 'momentum'
+
+2024-05-31 12:59:21,496: asyncio: INFO: [EnhancedMLTrader] Executing the on_bot_crash event method
+2024-05-31 12:59:21,523: root: INFO: Backtesting finished
+2024-05-31 12:59:24,220: asyncio: WARNING: [EnhancedMLTrader] Cannot plot returns because the strategy returns are missing
+2024-05-31 12:59:24,652: asyncio: WARNING: [EnhancedMLTrader] Cannot create a tearsheet because the strategy returns are missing
+2024-05-31 12:59:24,652: backtest_stats: INFO: Backtest took 0:00:08.064541 for a speed of 0.000
